@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Class1.cs" />
     <Compile Include="Common\CommonConst.cs" />
     <Compile Include="Common\CommonFunc.cs" />
     <Compile Include="Common\Data\WeatherSQLite.cs" />
