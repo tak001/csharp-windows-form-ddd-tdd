@@ -1,4 +1,4 @@
-using DDD.WinForm.Common;
+﻿using DDD.WinForm.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DDDTest.Tests
