@@ -84,6 +84,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CommonConst.cs" />
+    <Compile Include="Common\CommonFunc.cs" />
+    <Compile Include="Common\Data\WeatherSQLite.cs" />
     <Compile Include="WeatherLatestView.cs">
       <SubType>Form</SubType>
     </Compile>
