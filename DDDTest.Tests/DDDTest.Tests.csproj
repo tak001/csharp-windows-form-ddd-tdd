@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemperatureTest.cs" />
     <Compile Include="WeatherLatestViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>

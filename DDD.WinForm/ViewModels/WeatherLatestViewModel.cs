@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DDD.Domain.ValueObjects;
 
 namespace DDD.WinForm.ViewModels
 {
@@ -33,8 +34,8 @@ namespace DDD.WinForm.ViewModels
                 ConditionText = entity.Condition.ToString();
                 TemperatureText =
                    CommonFunc.RoundString(entity.Temperature,
-                        CommonConst.TemperatureDecimalPoint) + " "
-                        + CommonConst.TemperatureUnitName;
+                        Temperature.DecimalPoint) + " "
+                        + Temperature.UnitName;
             }
         }
     }

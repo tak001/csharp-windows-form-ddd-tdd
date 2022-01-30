@@ -23,7 +23,7 @@ namespace DDD.WinForm
 
         private void LatestButton_Click(object sender, EventArgs e)
         {
-            var dt = WeatherSQLite.GetLatest(Convert.ToInt32(AreaIdTextBox.Text));
+            //var dt = WeatherSQLite.GetLatest(Convert.ToInt32(AreaIdTextBox.Text));
         }
 
     }
