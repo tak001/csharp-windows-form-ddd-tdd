@@ -10,11 +10,20 @@ namespace DDD.WinForm
         public WeatherLatestView()
         {
             InitializeComponent();
+
+            this.AreaIdTextBox.DataBindings.Add(
+                "Text", _viewModel, nameof(_viewModel.AreaIdText));
+            this.DataDateLabel.DataBindings.Add(
+                "Text", _viewModel, nameof(_viewModel.DataDateText));
+            this.ConditionLabel.DataBindings.Add(
+                "Text", _viewModel, nameof(_viewModel.ConditionText));
+            this.TemperatureLabel.DataBindings.Add(
+                "Text", _viewModel, nameof(_viewModel.TemperatureText));
         }
 
         private void LatestButton_Click(object sender, EventArgs e)
         {
-            //var dt = WeatherSQLite.GetLatest(Convert.ToInt32(AreaIdTextBox.Text));
+            _viewModel.Search();
         }
 
     }

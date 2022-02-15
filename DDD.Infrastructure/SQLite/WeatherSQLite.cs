@@ -1,6 +1,5 @@
 ﻿using DDD.Domain.Entities;
 using DDD.Domain.Repositories;
-using DDD.WinForm.Common;
 using System;
 using System.Data.SQLite;
 
@@ -20,7 +19,7 @@ order by DataDate desc
 LIMIT 1
 ";
 
-            using (var connection = new SQLiteConnection(CommonConst.ConnectionString))
+            using (var connection = new SQLiteConnection(SQLiteHelper.ConnectionString))
             using (var command = new SQLiteCommand(sql, connection))
             {
                 connection.Open();
@@ -31,7 +30,7 @@ LIMIT 1
                     while (reader.Read())
                     {
                         return new WeatherEntity(
-                            Convert.ToInt32(reader["AreaId"]),
+                            areaId,
                             Convert.ToDateTime(reader["DataDate"]),
                             Convert.ToInt32(reader["Condition"]),
                             Convert.ToSingle(reader["Temperature"]));
