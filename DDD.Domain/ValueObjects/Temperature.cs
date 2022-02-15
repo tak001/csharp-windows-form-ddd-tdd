@@ -13,7 +13,8 @@ namespace DDD.Domain.ValueObjects
         }
 
         public float Value { get; }
-        public string DisplayValue {
+        public string DisplayValue
+        {
             get
             {
                 return CommonFunc.RoundString(Value, DecimalPoint) + UnitName;
@@ -25,6 +26,16 @@ namespace DDD.Domain.ValueObjects
             var vo = obj as Temperature;
             if (vo == null) return false;
             return Value == vo.Value;
+        }
+
+        public static bool operator ==(Temperature vo1, Temperature vo2)
+        {
+            return Equals(vo1, vo2);
+        }
+
+        public static bool operator !=(Temperature vo1, Temperature vo2)
+        {
+            return !Equals(vo1, vo2);
         }
     }
 }
