@@ -24,5 +24,17 @@ namespace DDD.Domain.Entities
         public DateTime DataDate { get; }
         public Condition Condition { get; }
         public Temperature Temperature { get; }
+
+        public bool IsMousho()
+        {
+            if (Condition == Condition.Sunny)
+            {
+                if(Temperature.Value > 30)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
