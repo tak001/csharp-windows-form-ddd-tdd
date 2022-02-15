@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DDD.Domain.ValueObjects;
 
 namespace DDD.Domain.Entities
 {
@@ -20,13 +16,13 @@ namespace DDD.Domain.Entities
             AreaId = areaId;
             DataDate = dataDate;
             Condition = condition;
-            Temperature = temperature;
+            Temperature = new Temperature(temperature);
 
         }
 
         public int AreaId { get; }
         public DateTime DataDate { get; }
         public int Condition { get; }
-        public float Temperature { get; }
+        public Temperature Temperature { get; }
     }
 }

@@ -17,7 +17,23 @@ namespace DDD.Domain.ValueObjects
         {
             get
             {
+                return CommonFunc.RoundString(Value, DecimalPoint);
+            }
+        }
+
+        public string DisplayValueWithUnit
+        {
+            get
+            {
                 return CommonFunc.RoundString(Value, DecimalPoint) + UnitName;
+            }
+        }
+
+        public string DisplayValueWithUnitSpace
+        {
+            get
+            {
+                return CommonFunc.RoundString(Value, DecimalPoint) + " " + UnitName;
             }
         }
 
