@@ -15,14 +15,14 @@ namespace DDD.Domain.Entities
         {
             AreaId = areaId;
             DataDate = dataDate;
-            Condition = condition;
+            Condition = new Condition(condition);
             Temperature = new Temperature(temperature);
 
         }
 
         public int AreaId { get; }
         public DateTime DataDate { get; }
-        public int Condition { get; }
+        public Condition Condition { get; }
         public Temperature Temperature { get; }
     }
 }
