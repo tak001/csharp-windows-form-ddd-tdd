@@ -2,7 +2,7 @@
 
 namespace DDD.Domain.ValueObjects
 {
-    public sealed class Temperature
+    public sealed class Temperature : ValueObject<Temperature>
     {
         public const string UnitName = "℃";
         public const int DecimalPoint = 2;
@@ -21,21 +21,9 @@ namespace DDD.Domain.ValueObjects
             }
         }
 
-        public override bool Equals(object obj)
+        protected override bool EqualsCore(Temperature other)
         {
-            var vo = obj as Temperature;
-            if (vo == null) return false;
-            return Value == vo.Value;
-        }
-
-        public static bool operator ==(Temperature vo1, Temperature vo2)
-        {
-            return Equals(vo1, vo2);
-        }
-
-        public static bool operator !=(Temperature vo1, Temperature vo2)
-        {
-            return !Equals(vo1, vo2);
+            return Value == other.Value;
         }
     }
 }
