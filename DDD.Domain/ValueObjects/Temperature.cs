@@ -1,5 +1,4 @@
 ﻿using DDD.Domain.Helpers;
-using DDD.WinForm.Common;
 
 namespace DDD.Domain.ValueObjects
 {

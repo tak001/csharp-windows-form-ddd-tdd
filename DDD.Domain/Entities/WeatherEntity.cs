@@ -27,7 +27,7 @@ namespace DDD.Domain.Entities
 
         public bool IsMousho()
         {
-            if (Condition == Condition.Sunny)
+            if (Condition.IsSunny())
             {
                 if(Temperature.Value > 30)
                 {

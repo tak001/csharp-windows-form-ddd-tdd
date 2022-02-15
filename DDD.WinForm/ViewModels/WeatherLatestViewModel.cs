@@ -1,18 +1,18 @@
 ﻿using DDD.Domain.Repositories;
-using DDD.WinForm.Common;
 using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DDD.Domain.ValueObjects;
+
+using DDD.Infrastructure.SQLite;
 
 namespace DDD.WinForm.ViewModels
 {
     public class WeatherLatestViewModel
     {
         private IWeatherRepository _weather;
+
+        public WeatherLatestViewModel()
+            : this(new WeatherSQLite())
+        {
+        }
 
         // 抽象に依存させて中身を入れ替える
         public WeatherLatestViewModel(IWeatherRepository weather)
