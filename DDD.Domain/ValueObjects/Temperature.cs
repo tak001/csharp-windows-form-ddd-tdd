@@ -19,5 +19,12 @@ namespace DDD.Domain.ValueObjects
                 return CommonFunc.RoundString(Value, DecimalPoint) + UnitName;
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            var vo = obj as Temperature;
+            if (vo == null) return false;
+            return Value == vo.Value;
+        }
     }
 }
