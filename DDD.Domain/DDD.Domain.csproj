@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonConst.cs" />
-    <Compile Include="CommonFunc.cs" />
     <Compile Include="Entities\WeatherEntity.cs" />
+    <Compile Include="Helpers\FloatHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IWeatherRepository.cs" />
     <Compile Include="ValueObjects\Temperature.cs" />
