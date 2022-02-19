@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeatherLatestViewModel.cs" />
     <Compile Include="Views\WeatherLatestView.cs">
       <SubType>Form</SubType>

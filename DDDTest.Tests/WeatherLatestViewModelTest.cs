@@ -13,8 +13,31 @@ namespace DDDTest.Tests
         [TestMethod]
         public void シナリオ()
         {
+            // Moq
             var weatherMock = new Mock<IWeatherRepository>();
+
+            weatherMock.Setup(x => x.GetLatest(1)).Returns(
+                new WeatherEntity(
+                    1,
+                    Convert.ToDateTime("2018/01/01 12:34:56"),
+                    2,
+                    12.3f
+                )
+            );
+
+            weatherMock.Setup(x => x.GetLatest(2)).Returns(
+                new WeatherEntity(
+                    2,
+                    Convert.ToDateTime("2018/01/02 12:34:56"),
+                    1,
+                    22.123f
+                )
+            );
+
+
             var viewModel = new WeatherLatestViewModel(weatherMock.Object);
+
+
             // 初期値は全てから文字である
             Assert.AreEqual("", viewModel.AreaIdText);
             Assert.AreEqual("", viewModel.DataDateText);
@@ -35,18 +58,5 @@ namespace DDDTest.Tests
             Assert.AreEqual("晴れ", viewModel.ConditionText);
             Assert.AreEqual("22.12 ℃", viewModel.TemperatureText);
         }
-    }
-}
-
-internal class WeatherMock : IWeatherRepository
-{
-    public WeatherEntity GetLatest(int areaId)
-    {
-        return new WeatherEntity(
-            1,
-            Convert.ToDateTime("2018/01/01 12:34:56"),
-            2,
-            12.3f
-        );
     }
 }
