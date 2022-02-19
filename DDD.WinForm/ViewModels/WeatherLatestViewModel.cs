@@ -30,13 +30,13 @@ namespace DDD.WinForm.ViewModels
             }
         }
 
-        private string _areaIdText = string.Empty;
-        public string AreaIdText
+        private object _selectedAreaId;
+        public object SelectedAreaId
         {
-            get { return _areaIdText; }
+            get { return _selectedAreaId; }
             set
             {
-                SetProperty(ref _areaIdText, value);
+                SetProperty(ref _selectedAreaId, value);
             }
         }
 
@@ -75,7 +75,7 @@ namespace DDD.WinForm.ViewModels
 
         public void Search()
         {
-            var entity = _weather.GetLatest(Convert.ToInt32(AreaIdText));
+            var entity = _weather.GetLatest(Convert.ToInt32(_selectedAreaId));
             if (entity != null)
             {
                 DataDateText = entity.DataDate.ToString();

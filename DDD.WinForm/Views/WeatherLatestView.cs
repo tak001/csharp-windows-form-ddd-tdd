@@ -11,8 +11,8 @@ namespace DDD.WinForm
         {
             InitializeComponent();
 
-            this.AreaIdTextBox.DataBindings.Add(
-                "Text", _viewModel, nameof(_viewModel.AreaIdText));
+            this.AreasComboBox.DataBindings.Add(
+                "SelectedValue", _viewModel, nameof(_viewModel.SelectedAreaId));
             this.DataDateLabel.DataBindings.Add(
                 "Text", _viewModel, nameof(_viewModel.DataDateText));
             this.ConditionLabel.DataBindings.Add(
