@@ -67,6 +67,7 @@
     <Compile Include="ChainingAssertion.MSTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemperatureTest.cs" />
+    <Compile Include="WeatherSaveViewModelTest.cs" />
     <Compile Include="WeatherListViewModelTest.cs" />
     <Compile Include="WeatherLatestViewModelTest.cs" />
   </ItemGroup>
