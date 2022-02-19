@@ -16,6 +16,7 @@ namespace DDDTest.Tests
         [TestMethod]
         public void 天気登録シナリオ()
         {
+            var weatherMock = new Mock<IWeatherRepository>();
             var areasMock = new Mock<IAreasRepository>();
 
             var areas = new List<AreaEntity>();
@@ -23,7 +24,7 @@ namespace DDDTest.Tests
             areas.Add(new AreaEntity(2, "神戸"));
             areasMock.Setup(x => x.GetData()).Returns(areas);
 
-            var viewModelMock = new Mock<WeatherSaveViewModel>(areasMock.Object);
+            var viewModelMock = new Mock<WeatherSaveViewModel>(weatherMock.Object, areasMock.Object);
             viewModelMock.Setup(x => x.GetDateTime()).Returns(
                 Convert.ToDateTime("2018/01/01 12:24:56"));
 
@@ -42,6 +43,20 @@ namespace DDDTest.Tests
             viewModel.SelectedAreaId = 2;
             ex = AssertEx.Throws<InputException>(() => viewModel.Save());
             ex.Message.Is("温度の入力に誤りがあります");
+
+            viewModel.TemperatureText = "12.345";
+
+            weatherMock.Setup(x => x.Save(It.IsAny<WeatherEntity>())).
+                Callback<WeatherEntity>(saveValue =>
+                {
+                    saveValue.AreaId.Value.Is(2);
+                    saveValue.DataDate.Is(Convert.ToDateTime("2018/01/01 12:24:56"));
+                    saveValue.Condition.Value.Is(1);
+                    saveValue.Temperature.Value.Is(12.345f);
+                });
+
+            viewModel.Save();
+            weatherMock.VerifyAll();
         }
     }
 }

@@ -7,5 +7,6 @@ namespace DDD.Domain.Repositories
     {
         WeatherEntity GetLatest(int areaId);
         IReadOnlyList<WeatherEntity> GetData();
+        void Save(WeatherEntity weather);
     }
 }
