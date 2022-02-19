@@ -15,22 +15,12 @@ select  AreaId,
         AreaName
 from Areas";
 
-            var result = new List<AreaEntity>();
-            using (var connection = new SQLiteConnection(SQLiteHelper.ConnectionString))
-            using (var command = new SQLiteCommand(sql, connection))
-            {
-                connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(new AreaEntity(Convert.ToInt32(reader["AreaId"]),
-                                                 Convert.ToString(reader["AreaName"])));
-                    }
-                }
-            }
+            return SQLiteHelper.Query(sql, CreatteEntity);
+        }
 
-            return result.AsReadOnly();
+        private AreaEntity CreatteEntity(SQLiteDataReader reader)
+        {
+            return new AreaEntity(Convert.ToInt32(reader["AreaId"]), Convert.ToString(reader["AreaName"]));
         }
     }
 }
