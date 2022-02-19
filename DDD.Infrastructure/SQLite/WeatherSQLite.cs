@@ -1,6 +1,7 @@
 ﻿using DDD.Domain.Entities;
 using DDD.Domain.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace DDD.Infrastructure.SQLite
@@ -19,26 +20,26 @@ order by DataDate desc
 LIMIT 1
 ";
 
-            using (var connection = new SQLiteConnection(SQLiteHelper.ConnectionString))
-            using (var command = new SQLiteCommand(sql, connection))
-            {
-                connection.Open();
-
-                command.Parameters.AddWithValue("@AreaId", areaId);
-                using (var reader = command.ExecuteReader())
+            return SQLiteHelper.QuerySingle(
+                sql,
+                new List<SQLiteParameter>
                 {
-                    while (reader.Read())
-                    {
-                        return new WeatherEntity(
+                    new SQLiteParameter("@AreaId", areaId)
+                }.ToArray(),
+                reader =>
+                {
+                    return new WeatherEntity(
                             areaId,
                             Convert.ToDateTime(reader["DataDate"]),
                             Convert.ToInt32(reader["Condition"]),
                             Convert.ToSingle(reader["Temperature"]));
-                    }
-                }
-            }
+                },
+                null);
+        }
 
-            return null;
+        public IReadOnlyList<WeatherEntity> GetData()
+        {
+            throw new NotImplementedException();
         }
     }
 }

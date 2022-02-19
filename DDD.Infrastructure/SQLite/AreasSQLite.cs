@@ -2,7 +2,6 @@
 using DDD.Domain.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 
 namespace DDD.Infrastructure.SQLite
 {
