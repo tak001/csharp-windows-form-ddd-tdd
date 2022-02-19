@@ -103,6 +103,12 @@
     <Compile Include="Views\WeatherListView.Designer.cs">
       <DependentUpon>WeatherListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\WeatherSaveView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WeatherSaveView.Designer.cs">
+      <DependentUpon>WeatherSaveView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\WeatherLatestView.resx">
       <DependentUpon>WeatherLatestView.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="Views\WeatherListView.resx">
       <DependentUpon>WeatherListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WeatherSaveView.resx">
+      <DependentUpon>WeatherSaveView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
