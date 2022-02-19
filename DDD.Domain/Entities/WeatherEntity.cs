@@ -11,9 +11,20 @@ namespace DDD.Domain.Entities
             DateTime dataDate,
             int condition,
             float temperature
+        ) : this(areaId, string.Empty, dataDate, condition, temperature)
+        {
+        }
+
+        public WeatherEntity(
+            int areaId,
+            string areaName,
+            DateTime dataDate,
+            int condition,
+            float temperature
         )
         {
             AreaId = areaId;
+            AreaName = areaName;
             DataDate = dataDate;
             Condition = new Condition(condition);
             Temperature = new Temperature(temperature);
@@ -21,6 +32,7 @@ namespace DDD.Domain.Entities
         }
 
         public int AreaId { get; }
+        public string AreaName { get; }
         public DateTime DataDate { get; }
         public Condition Condition { get; }
         public Temperature Temperature { get; }
@@ -29,7 +41,7 @@ namespace DDD.Domain.Entities
         {
             if (Condition.IsSunny())
             {
-                if(Temperature.Value > 30)
+                if (Temperature.Value > 30)
                 {
                     return true;
                 }
