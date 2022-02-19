@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLite\AreasSQLite.cs" />
     <Compile Include="SQLite\SQLiteHelper.cs" />
     <Compile Include="SQLite\WeatherSQLite.cs" />
   </ItemGroup>

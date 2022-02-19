@@ -12,7 +12,7 @@ namespace DDD.WinForm.ViewModels
         private IAreasRepository _areas;
 
         public WeatherLatestViewModel()
-            : this(new WeatherSQLite(), null)
+            : this(new WeatherSQLite(), new AreasSQLite())
         {
         }
 
