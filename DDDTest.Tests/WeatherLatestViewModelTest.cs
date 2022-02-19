@@ -40,6 +40,7 @@ namespace DDDTest.Tests
             var areas = new List<AreaEntity>();
             areas.Add(new AreaEntity(1, "東京"));
             areas.Add(new AreaEntity(2, "神戸"));
+            areas.Add(new AreaEntity(3, "沖縄"));
             areasMock.Setup(x => x.GetData()).Returns(areas);
 
             var viewModel = new WeatherLatestViewModel(
@@ -49,7 +50,7 @@ namespace DDDTest.Tests
             Assert.AreEqual("", viewModel.DataDateText);
             Assert.AreEqual("", viewModel.ConditionText);
             Assert.AreEqual("", viewModel.TemperatureText);
-            Assert.AreEqual(2, viewModel.Areas.Count);
+            Assert.AreEqual(3, viewModel.Areas.Count);
             Assert.AreEqual(1, viewModel.Areas[0].AreaId);
             Assert.AreEqual("東京", viewModel.Areas[0].AreaName);
             Assert.AreEqual(2, viewModel.Areas[1].AreaId);
@@ -68,6 +69,13 @@ namespace DDDTest.Tests
             Assert.AreEqual("2018/01/02 12:34:56", viewModel.DataDateText);
             Assert.AreEqual("晴れ", viewModel.ConditionText);
             Assert.AreEqual("22.12 ℃", viewModel.TemperatureText);
+
+            viewModel.SelectedAreaId = 3;
+            viewModel.Search();
+            Assert.AreEqual(3, viewModel.SelectedAreaId);
+            Assert.AreEqual("", viewModel.DataDateText);
+            Assert.AreEqual("", viewModel.ConditionText);
+            Assert.AreEqual("", viewModel.TemperatureText);
         }
     }
 }
