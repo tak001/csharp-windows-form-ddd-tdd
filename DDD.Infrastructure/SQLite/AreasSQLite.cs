@@ -15,12 +15,12 @@ select  AreaId,
         AreaName
 from Areas";
 
-            return SQLiteHelper.Query(sql, CreatteEntity);
-        }
-
-        private AreaEntity CreatteEntity(SQLiteDataReader reader)
-        {
-            return new AreaEntity(Convert.ToInt32(reader["AreaId"]), Convert.ToString(reader["AreaName"]));
+            return SQLiteHelper.Query(sql,
+                reader =>
+                {
+                    return new AreaEntity(Convert.ToInt32(reader["AreaId"]), Convert.ToString(reader["AreaName"]));
+                }
+                );
         }
     }
 }
