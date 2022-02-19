@@ -23,7 +23,7 @@ namespace DDD.Domain.Entities
             float temperature
         )
         {
-            AreaId = areaId;
+            AreaId = new AreaId(areaId);
             AreaName = areaName;
             DataDate = dataDate;
             Condition = new Condition(condition);
@@ -31,7 +31,7 @@ namespace DDD.Domain.Entities
 
         }
 
-        public int AreaId { get; }
+        public AreaId AreaId { get; }
         public string AreaName { get; }
         public DateTime DataDate { get; }
         public Condition Condition { get; }
