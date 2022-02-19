@@ -45,6 +45,7 @@
     <Compile Include="Entities\WeatherEntity.cs" />
     <Compile Include="Exceptions\InputException.cs" />
     <Compile Include="Helpers\FloatHelper.cs" />
+    <Compile Include="Helpers\Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAreasRepository.cs" />
     <Compile Include="Repositories\IWeatherRepository.cs" />
