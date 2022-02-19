@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AreaEntity.cs" />
     <Compile Include="Entities\WeatherEntity.cs" />
     <Compile Include="Helpers\FloatHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAreasRepository.cs" />
     <Compile Include="Repositories\IWeatherRepository.cs" />
     <Compile Include="ValueObjects\Condition.cs" />
     <Compile Include="ValueObjects\Temperature.cs" />

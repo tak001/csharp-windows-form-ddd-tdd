@@ -2,22 +2,32 @@
 using System;
 using DDD.Infrastructure.SQLite;
 using System.ComponentModel;
+using DDD.Domain.Entities;
 
 namespace DDD.WinForm.ViewModels
 {
     public class WeatherLatestViewModel : ViewModelBase
     {
         private IWeatherRepository _weather;
+        private IAreasRepository _areas;
 
         public WeatherLatestViewModel()
-            : this(new WeatherSQLite())
+            : this(new WeatherSQLite(), null)
         {
         }
 
         // 抽象に依存させて中身を入れ替える
-        public WeatherLatestViewModel(IWeatherRepository weather)
+        public WeatherLatestViewModel(
+            IWeatherRepository weather,
+            IAreasRepository areas)
         {
             _weather = weather;
+            _areas = areas;
+
+            foreach (var area in _areas.GetData())
+            {
+                Areas.Add(new AreaEntity(area.AreaId, area.AreaName));
+            }
         }
 
         private string _areaIdText = string.Empty;
@@ -59,6 +69,9 @@ namespace DDD.WinForm.ViewModels
                 SetProperty(ref _temperatureText, value);
             }
         }
+
+        public BindingList<AreaEntity> Areas { get; set; }
+        = new BindingList<AreaEntity>();
 
         public void Search()
         {
