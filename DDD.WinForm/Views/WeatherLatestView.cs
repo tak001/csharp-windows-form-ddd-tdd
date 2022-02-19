@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DDD.Domain.Entities;
 using DDD.WinForm.ViewModels;
+using DDD.WinForm.Views;
 
 namespace DDD.WinForm
 {
@@ -32,5 +33,12 @@ namespace DDD.WinForm
             _viewModel.Search();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using(var f = new WeatherListView())
+            {
+                f.ShowDialog();
+            }
+        }
     }
 }
